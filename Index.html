@@ -7,19 +7,20 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
-            padding: 20px;
+            margin: 0; /* Rimuovi il margine predefinito */
+            padding: 0; /* Rimuovi il padding predefinito */
+            height: 100vh; /* Imposta l'altezza del corpo per occupare l'intera altezza della finestra */
+            overflow: hidden; /* Nascondi il contenuto che esce dallo schermo */
         }
-        embed {
-            width: 80%;
-            height: 800px;
-            border: none;
+        iframe {
+            width: 100%; /* Larghezza al 100% */
+            height: 100%; /* Altezza al 100% */
+            border: none; /* Rimuovi il bordo */
         }
     </style>
 </head>
 <body>
-    <h1>Previsioni Meteo Vicenza</h1>
-    <embed src="https://pdf.3bmeteo.com/pdf/personalizza_semplice/7812/it/1" type="application/pdf">
+    <h1 style="text-align: center;">Previsioni Meteo Vicenza</h1>
+    <iframe src="https://docs.google.com/gview?url=https://pdf.3bmeteo.com/pdf/personalizza_semplice/7812/it/1&embedded=true"></iframe>
 </body>
 </html>
