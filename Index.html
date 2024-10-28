@@ -7,20 +7,48 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0; /* Rimuovi il margine predefinito */
-            padding: 0; /* Rimuovi il padding predefinito */
-            height: 95vh; /* Imposta l'altezza del corpo per occupare l'intera altezza della finestra */
-            overflow: hidden; /* Nascondi il contenuto che esce dallo schermo */
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         iframe {
-            width: 100%; /* Larghezza al 100% */
-            height: 95%; /* Altezza al 95% */
-            border: none; /* Rimuovi il bordo */
+            width: 100%;
+            height: 80%; /* Imposta l'altezza dell'iframe */
+            border: none;
+        }
+        .controls {
+            margin: 10px 0; /* Margine per il contenitore di controlli */
+        }
+        select, button {
+            padding: 10px;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <h1 style="text-align: center;">Previsioni Meteo Vicenza</h1>
-    <iframe src="https://docs.google.com/gview?url=https://pdf.3bmeteo.com/pdf/personalizza_semplice/7812/it/1&embedded=true"></iframe>
+    <h1 style="text-align: center;">Previsioni Meteo</h1>
+    
+    <div class="controls">
+        <select id="citySelect">
+            <option value="7812">Vicenza</option>
+            <option value="1272">Caorle</option>
+            <!-- Aggiungi qui altre città se necessario -->
+        </select>
+        <button onclick="updatePDF()">Aggiorna</button>
+    </div>
+    
+    <iframe id="pdfFrame" src="https://docs.google.com/gview?url=https://pdf.3bmeteo.com/pdf/personalizza_semplice/7812/it/1&embedded=true"></iframe>
+
+    <script>
+        function updatePDF() {
+            const cityId = document.getElementById('citySelect').value;
+            const pdfUrl = `https://docs.google.com/gview?url=https://pdf.3bmeteo.com/pdf/personalizza_semplice/${cityId}/it/1&embedded=true`;
+            document.getElementById('pdfFrame').src = pdfUrl;
+        }
+    </script>
 </body>
 </html>
